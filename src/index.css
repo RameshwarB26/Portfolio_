@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-gray-100 font-body scroll-smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gradient-to-b from-gradient-start to-gradient-end rounded-full;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-gradient-start to-gradient-end bg-clip-text text-transparent animate-glow;
+  }
+
+  .gradient-text-alt {
+    @apply bg-gradient-to-r from-gradient-alt-start to-gradient-alt-end bg-clip-text text-transparent animate-glow;
+  }
+
+  .nav-link {
+    @apply relative px-4 py-2 text-gray-300 hover:text-white transition-all duration-300;
+    &::after {
+      @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-accent-cyan transition-all duration-300;
+    }
+    &:hover::after {
+      @apply w-full;
+    }
+  }
+
+  .glass-card {
+    @apply backdrop-blur-sm bg-secondary/30 border border-white/10 rounded-xl shadow-xl;
+  }
+
+  .skill-card {
+    @apply p-6 glass-card hover:bg-secondary/50 transition-all duration-300 flex flex-col items-center gap-3 animate-fade-in;
+    &:hover {
+      @apply transform -translate-y-1;
+    }
+  }
+
+  .project-card {
+    @apply glass-card overflow-hidden animate-scale-up;
+  }
+  
+  .project-card:hover {
+    @apply transform scale-[1.02] transition-transform duration-300;
+  }
+
+  .contact-input {
+    @apply w-full bg-secondary/50 rounded-lg px-4 py-3 border border-white/10 focus:border-accent-cyan focus:outline-none transition-all duration-300 placeholder:text-gray-500;
+    &:focus {
+      @apply bg-secondary/70 transform scale-[1.02];
+    }
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-gradient-to-r from-gradient-start to-gradient-end rounded-lg transition-all duration-300 animate-float;
+    &:hover {
+      @apply transform scale-105 shadow-lg shadow-gradient-start/20;
+    }
+  }
+
+  .social-icon {
+    @apply text-2xl text-gray-300 hover:text-accent-cyan transition-all duration-300;
+    &:hover {
+      @apply transform scale-110 rotate-6;
+    }
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold mb-4 animate-slide-up;
+  }
+
+  .section-subheading {
+    @apply text-gray-300 max-w-2xl mx-auto mb-12 animate-fade-in;
+  }
+
+  .hover-card-3d {
+    @apply transition-transform duration-300 transform perspective-1000;
+    &:hover {
+      @apply rotate-x-2 rotate-y-2 shadow-xl;
+    }
+  }
+}
