@@ -1,0 +1,9 @@
+import { profile } from '../data/portfolio'
+export default function HomeHero() {
+  return <section id="home" className="hero shell">
+    <div className="hero-top"><span className="eyebrow"><i /> Software developer</span><span className="mono hero-location">BASED IN NASHIK, INDIA</span></div>
+    <div className="hero-layout"><div className="hero-copy"><p className="intro-name">Hi, I’m Rameshwar Bhumbar.</p><h1>Thoughtful interfaces.<br />Connected systems.<br /><em>Working software.</em></h1><p className="hero-description">An early-career developer building across the web and mobile — from the interface you interact with to the APIs and data behind it.</p><div className="hero-actions"><a className="button" href="#projects">Explore my work <span>↘</span></a><a className="text-link" href="#contact">Contact me <span>↗</span></a></div></div>
+    <div className="system-visual" aria-label="My development focus: interface, logic, and data"><div className="visual-caption mono">THE WAY I THINK / 001</div><div className="system-orbit" aria-hidden="true"><span className="orbit-dot" /><span className="orbit-cross cross-one">+</span><span className="orbit-cross cross-two">+</span><span className="system-core">rb<span>.</span></span></div><div className="system-layers"><span><b>01</b> Interface <small>React · Flutter</small></span><span><b>02</b> Logic <small>Java · Node.js</small></span><span><b>03</b> Data <small>MySQL · Firebase</small></span></div><p className="mono visual-bottom">FROM FIRST INTERACTION TO FINAL RESPONSE.</p></div></div>
+    <div className="hero-bottom"><div className="social-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a></div><a className="mono scroll-link" href="#projects">SCROLL TO EXPLORE <span>↓</span></a></div>
+  </section>
+}

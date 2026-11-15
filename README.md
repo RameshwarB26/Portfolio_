@@ -1,46 +1,41 @@
-# Getting Started with Create React App
+# Rameshwar Bhumbar — Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React 18 + Vite single-page portfolio. Existing framework, entry point, section components, and section observer retained. No router or framework migration.
 
-## Available Scripts
+## Development
 
-In the project directory, you can run:
+- `npm ci`
+- `npm run dev`
+- `npm run build`
+- `npm run preview`
 
-### `npm start`
+## Content and presentation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Edit `src/data/portfolio.js` for profile links, projects, expertise, experience, education, certifications, and recognition. The hero and about copy live in their section components. `src/index.css` defines color, spacing, typography, responsive layouts, focus styles, and reduced-motion support. Project presentations share `src/components/ProjectShowcase.jsx`; optional project details use native disclosures. Resume and email were supplied by the owner during this redesign.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The Netlify site has not been redeployed. Deploy `dist/` after `npm run build` to update it. The selected-work live link deliberately identifies the previous deployment.
 
-### `npm test`
+## Content review before publication
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Add authorized Plugo and Offbit project descriptions, specific contributions, public links, and genuine screenshots. Neither project exists in the supplied source, so no claims or screenshots were invented.
+- The only verified project is this portfolio. Its source repository URL is unknown; the GitHub profile remains available instead of a fake source link.
+- Confirm that the Google Drive resume is publicly viewable. The supplied URL is preserved, without changing file sharing.
+- Confirm the education dates and grades remain current. The source listed September 2023–June 2026 and September 2019–June 2022; display uses year ranges and does not infer graduation status.
+- The PHP trainee employer was absent from the source. The display uses a training description rather than inventing an organization.
+- Experience, certifications, and recognition retain the repository's claims; their supporting documents were not available for independent verification.
 
-### `npm run build`
+## Audit and implementation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The original was JavaScript/JSX with Tailwind/PostCSS and Vite, no routing, lint script, type-check script, or tests. It used repetitive shadow cards, duplicated portraits, eight navigation items, placeholder project images and links, placeholder identity/metadata, an unsupported five-year experience claim, and a contact form without a handler. Only one real image was supplied.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The redesign uses charcoal and olive surfaces, ivory text, a lime accent, editorial type, a custom CSS system visual, a typographic project illustration explicitly labeled as illustration, and responsive section-specific layouts. JavaScript only manages navigation, section observation, and progressive reveal. Content stays visible when IntersectionObserver is unavailable. Framer Motion and React Icons were removed; no dependencies were added. Tailwind remains in the existing pipeline for compatibility, with the new design implemented in CSS tokens.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Accessibility features include a skip link, semantic sections, visible keyboard focus, a mobile disclosure menu with Escape/outside-click handling, active-section markers, native case-study disclosures, sized images, and reduced-motion support. Contact uses mailto and verified supplied/profile links instead of an unconnected form.
 
-### `npm run eject`
+SEO includes accurate title/description, canonical URL, Open Graph and Twitter metadata, a real existing portrait as social image, favicon, robots.txt, and sitemap.xml. The old manifest was corrected, but is not linked because offline/PWA installation is not implemented.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Validation
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Production build passes. No separate lint, type-check, or test scripts exist in this repository. Source integrity checks validate fragment targets, public assets, placeholder removal, and absence of removed animation imports. Build output is approximately 51 KB gzipped JavaScript. Browserslist reports stale compatibility data; its database was not refreshed as part of the design change.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Visual browser verification remains incomplete: the in-app browser could not reach the Windows localhost preview. Desktop/mobile overflow, keyboard behavior, reduced motion, console state, and third-party link availability should receive a final browser pass before deployment.

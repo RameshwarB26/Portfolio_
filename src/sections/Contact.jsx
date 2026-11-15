@@ -1,0 +1,4 @@
+import { profile } from '../data/portfolio'
+export default function Contact() {
+  return <section id="contact" className="contact-section shell" data-reveal><p className="eyebrow"><i /> Let’s connect</p><div className="contact-layout"><h2>Have something<br />in mind?<br /><em>Let’s build it.</em></h2><div className="contact-copy"><p>I’m interested in software development opportunities where I can contribute, learn, and work on useful products.</p><a className="button" href={profile.email ? `mailto:${profile.email}` : profile.linkedin} target={profile.email ? undefined : '_blank'} rel="noreferrer">{profile.email ? 'Email me' : 'Connect on LinkedIn'} <span>↗</span></a><div className="contact-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>{profile.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}{profile.resume && <a href={profile.resume}>Resume ↗</a>}</div></div></div></section>
+}
