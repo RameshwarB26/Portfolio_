@@ -1,0 +1,5 @@
+import Skills from './Skills'
+
+export default function About() {
+  return <section id="about" className="section about-section"><div className="shell about-layout"><div className="about-label"><p className="eyebrow">02 / About & expertise</p><figure className="portrait"><img src="/images/Rameshwar_pic.jpeg" alt="Rameshwar Balaji Bhumbar" loading="lazy" width="200" height="240" /><figcaption>Rameshwar Bhumbar<br /><span>Software Developer · Nashik</span></figcaption></figure></div><div className="about-main"><div className="about-copy" data-reveal><h2>Good software starts<br />with understanding<br /><em>how things connect.</em></h2><p>I’m a software developer with a background in computer engineering. I work across frontend, backend, and mobile — connecting usable interfaces with APIs and database-driven workflows.</p><p>I enjoy making complex behavior easier to follow, whether that means refining a component, debugging an integration, or improving existing code.</p></div><Skills /></div></div></section>
+}

@@ -1,0 +1,60 @@
+/* Lightweight motion layered over the approved identity. No scroll hijacking. */
+.reading-progress { position: fixed; inset: 0 0 auto; height: 2px; z-index: 50; pointer-events: none; }
+.reading-progress > span { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; }
+.header { transition: box-shadow .3s ease; }
+html[data-scrolled='true'] .header { box-shadow: 0 8px 24px color-mix(in srgb, var(--ink) 4%, transparent); }
+.motion-control { position: fixed; right: 20px; bottom: 18px; z-index: 25; min-height: 40px; padding: 9px 13px; display: inline-flex; align-items: center; gap: 9px; border: 1px solid var(--line); border-radius: var(--radius); color: var(--muted); background: var(--bg); font-size: 9px; cursor: pointer; box-shadow: 0 3px 15px color-mix(in srgb, var(--ink) 4%, transparent); transition: color .2s, border-color .2s; }
+.motion-control:hover { color: var(--ink); border-color: var(--accent); }
+.motion-control:disabled { cursor: default; }
+.motion-control-icon { width: 10px; font-size: 9px; text-align: center; color: var(--accent); }
+/* Transition-based reveals are one-shot; no permanent animation layer. */
+[data-reveal].revealed { animation: none; }
+[data-reveal].reveal-ready { transition: opacity .7s ease, transform .7s cubic-bezier(.2,.65,.25,1); transition-delay: var(--reveal-delay, 0ms); }
+[data-reveal].reveal-ready:not(.revealed) { opacity: 0; transform: translateY(18px); }
+[data-reveal].reveal-ready:focus-within { opacity: 1; transform: none; transition-delay: 0ms; }
+.hero-kicker { animation: hero-arrive .7s ease both; }
+.hero-copy h1 { animation: hero-arrive .85s cubic-bezier(.2,.65,.25,1) .08s both; }
+.hero-description { animation: hero-arrive .8s ease .18s both; }
+.hero-actions { animation: hero-arrive .8s ease .28s both; }
+.hero-aside { animation: hero-arrive .9s ease .25s both; }
+.hero-mark { animation: motif-turn 38s linear infinite; }
+.hero-mark span:nth-child(5) { animation: motif-breathe 6s ease-in-out infinite; }
+.hero-mark:hover { animation-play-state: paused; }
+@keyframes hero-arrive { from { opacity: .3; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes motif-turn { to { transform: rotate(360deg); } }
+@keyframes motif-breathe { 0%,100% { opacity: .65; scale: .9; } 50% { opacity: 1; scale: 1.08; } }
+.hero-actions .button > span, .text-link > span, .social-links a > span, .email-link > span { display: inline-block; transition: transform .25s ease; }
+.hero-actions .button:hover > span { transform: translate(2px, 2px); }
+.text-link:hover > span, .social-links a:hover > span, .email-link:hover > span { transform: translate(2px, -2px); }
+.scroll-link > span { display: inline-block; transition: transform .25s; }
+.scroll-link:hover > span { transform: translateY(4px); }
+.nav-links > a:not(.nav-contact)::before { content: ''; position: absolute; bottom: 6px; left: 0; width: 100%; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: right; transition: transform .3s ease; }
+.nav-links > a:hover::before { transform: scaleX(1); transform-origin: left; }
+/* Devices float only in response to deliberate pointer/focus interaction. */
+.study-browser { transition: transform .5s cubic-bezier(.2,.65,.25,1), box-shadow .5s; }
+.study-browser img { transition: filter .4s ease; }
+.study-details[open] > dl, .study-details[open] > .study-feature-journey, .recognition-section details[open] .recognition-grid { animation: notes-arrive .35s ease both; }
+@keyframes notes-arrive { from { opacity: .4; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (hover: hover) and (pointer: fine) {
+  .project-study--browser:hover .study-browser { transform: translateY(-5px); box-shadow: 0 18px 35px color-mix(in srgb, var(--ink) 10%, transparent); }
+  .study-body:focus-within .study-browser { transform: translateY(-3px); }
+}
+@media (max-width: 760px) {
+  .motion-control { bottom: 12px; right: 12px; min-height: 44px; padding-inline: 11px; font-size: 8px; }
+  .footer { padding-bottom: 62px; }
+  .nav-links.is-open { animation: notes-arrive .2s ease both; }
+  .nav-links > a:not(.nav-contact)::before { left: 8px; width: 20px; bottom: 9px; }
+}
+/* A persistent visitor control supplements the operating-system preference. */
+html[data-motion='paused'] { scroll-behavior: auto; }
+html[data-motion='paused'] *, html[data-motion='paused'] *::before, html[data-motion='paused'] *::after { animation: none !important; transition: none !important; }
+html[data-motion='paused'] [data-reveal].reveal-ready { opacity: 1; transform: none; }
+html[data-motion='paused'] .study-phone--secondary { transform: translateY(35px); }
+html[data-motion='paused'] .study-phone:first-child, html[data-motion='paused'] .study-browser, html[data-motion='paused'] .button:hover { transform: none; }
+html[data-motion='paused'] .study-paper { transform: rotate(-5deg); }
+@media (max-width: 760px) { html[data-motion='paused'] .study-phone--secondary { transform: translateY(24px); } }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].reveal-ready { opacity: 1 !important; transform: none !important; }
+  .hero-mark, .hero-mark span { animation: none !important; }
+  .study-browser, .study-body:focus-within .study-browser { transform: none !important; }
+}

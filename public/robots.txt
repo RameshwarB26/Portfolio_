@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rameshwarbhumbar-portfolio.netlify.app/sitemap.xml
